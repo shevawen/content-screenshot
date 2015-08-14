@@ -44,7 +44,7 @@ def svgAsBase64PngHelperPath(input, width, height):
     if (not os.path.exists(dumpSvgPngPath)):
         raise Exception(dumpSvgPngPath + " was not found")
     if (os.path.exists(input)):
-        input = "file://" + os.getcwd() + "/" + input
+        input = "file://" + os.path.abspath(os.path.expanduser(input))
     params = []
     if (width):
         params.append("width=" + str(width))
